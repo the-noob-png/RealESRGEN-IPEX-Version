@@ -88,11 +88,11 @@ This version is explicitly for intel's GPUs/iGPUs/XPUs with the help of Intel’
 
 Models:
 
-1. RealESRGAN_x4plus  (default)
+1. RealESRGAN_x4plus  
 2. RealESRNet_x4plus
 3. RealESRGAN_x4plus_anime_6B
 4. RealESRGAN_x2plus
-5. realesr-animevideov3 (animation video)
+5. realesr-animevideov3 (animation video) (default)
 6. realesr-general-x4v3
 
 #### Usage of python script
