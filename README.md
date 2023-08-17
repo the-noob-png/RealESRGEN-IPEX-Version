@@ -1,6 +1,9 @@
+### Please check out the Orignal\Cuda version [Here](https://github.com/xinntao/Real-ESRGAN)
+This version is explicitly for intel's GPUs/iGPUs/XPUs with the help of Intel’s PyTorch Extension for Pytorch or IPEX in short and intel's oneAPI.
+---
 ## Setup the system
 ### Install Pkgs
-#### Please ensure that you are using kernal >=6.1,tested on 6.2
+#### Please make sure that you are using kernal >=6.1,tested on 6.2
 - Add Intel Graphics drivers Repository
   ```bash
   wget -qO - https://repositories.intel.com/graphics/intel-graphics.key | \
@@ -41,13 +44,19 @@
     # it may take upto 15GB of disk space
     ```
 - Add the following lines to the end of the bash run commands file (.bashrc) for Intel’s extension to use the oneAPI toolkit
-    ```bash
+  ```bash
     export ONEAPI_ROOT=/opt/intel/oneapi
     export DPCPPROOT=${ONEAPI_ROOT}/compiler/latest
     export MKLROOT=${ONEAPI_ROOT}/mkl/latest
     export IPEX_XPU_ONEDNN_LAYOUT=1
     source ${ONEAPI_ROOT}/setvars.sh > /dev/null
      ```
+  ### Run the command
+  ```bash
+  echo -e "\nexport ONEAPI_ROOT=/opt/intel/oneapi\nexport DPCPPROOT=\${ONEAPI_ROOT}/compiler/latest\nexport MKLROOT=\${ONEAPI_ROOT}/mkl/latest\nexport IPEX_XPU_ONEDNN_LAYOUT=1\nsource \${ONEAPI_ROOT}/setvars.sh > /dev/null" >> ~/.bashrc \
+  #Source the `.bashrc`
+  source ~/.bashrc
+  ```
 - verify GPU visibility with `sycl-ls`
     ```bash
     sycl-ls
@@ -77,7 +86,7 @@
 
 ---
 
-We have provided five models:
+Models:
 
 1. realesrgan-x4plus  (default)
 2. realesrnet-x4plus
