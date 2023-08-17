@@ -1,6 +1,6 @@
 ## Setup the system
 ### Install Pkgs
-- Please ensure that you are using kernal >=6.1,tested on 6.2
+#### Please ensure that you are using kernal >=6.1,tested on 6.2
 - Add Intel Graphics drivers Repository
   ```bash
   wget -qO - https://repositories.intel.com/graphics/intel-graphics.key | \
