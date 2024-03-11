@@ -2,7 +2,7 @@
 This version is explicitly for intel's GPUs/iGPUs/XPUs with the help of Intel’s PyTorch Extension for Pytorch or IPEX in short and intel's oneAPI.
 ---
 ## Setup the system
-### Install Pkgs
+### Install all necessary packages
 #### Please make sure that you are using kernal >=6.1,tested on 6.2
 - Add Intel Graphics drivers Repository
   ```bash
