@@ -6,6 +6,9 @@ This version is explicitly for intel's GPUs/iGPUs/XPUs with the help of Intel’
 #### Please make sure that you are using kernal >=6.1,tested on 6.2
 - Add Intel Graphics drivers Repository
   ```bash
+  wget -O- https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB \ | gpg --dearmor | sudo tee /usr/share/keyrings/oneapi-archive-keyring.gpg > /dev/null \
+    # signed entry to APT sources
+  echo "deb [signed-by=/usr/share/keyrings/oneapi-archive-keyring.gpg] https://apt.repos.intel.com/oneapi all main" | sudo tee /etc/apt/sources.list.d/oneAPI.list \
   wget -qO - https://repositories.intel.com/graphics/intel-graphics.key | \
   sudo gpg --dearmor --output /usr/share/keyrings/intel-graphics.gpg && \
     echo "deb [arch=amd64,i386 signed-by=/usr/share/keyrings/intel-graphics.gpg] https://repositories.intel.com/graphics/ubuntu jammy arc" | \
@@ -19,7 +22,7 @@ This version is explicitly for intel's GPUs/iGPUs/XPUs with the help of Intel’
       intel-media-va-driver-non-free libmfx1 libmfxgen1 libvpl2 \
       libegl-mesa0 libegl1-mesa libegl1-mesa-dev libgbm1 libgl1-mesa-dev libgl1-mesa-dri \
       libglapi-mesa libgles2-mesa-dev libglx-mesa0 libigdgmm12 libxatracker2 mesa-va-drivers \
-      mesa-vdpau-drivers mesa-vulkan-drivers va-driver-all vainfo hwinfo clinfo mesa-utils
+      mesa-vdpau-drivers mesa-vulkan-drivers va-driver-all vainfo hwinfo clinfo mesa-utils intel-basekit
     ```
  ### Verify the Installations
  - Verify the device is working with the i915 driver
@@ -30,19 +33,6 @@ This version is explicitly for intel's GPUs/iGPUs/XPUs with the help of Intel’
   ```bash
   export DISPLAY=:0.0; vainfo
   ```
-### Install oneAPI Base Toolkit
-- Install oneAPI
-    ```bash
-    # Add repo
-    wget -O- https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB \ | gpg --dearmor | sudo tee /usr/share/keyrings/oneapi-archive-keyring.gpg > /dev/null
-    # signed entry to APT sources
-    echo "deb [signed-by=/usr/share/keyrings/oneapi-archive-keyring.gpg] https://apt.repos.intel.com/oneapi all main" | sudo tee /etc/apt/sources.list.d/oneAPI.list
-    # Update the repo
-    sudo apt-get update
-    # install the intel-basekit
-    sudo apt-get install intel-basekit
-    # it may take upto 15GB of disk space
-    ```
 - Add the following lines to the end of the bash run commands file (.bashrc) for Intel’s extension to use the oneAPI toolkit
   ```bash
     export ONEAPI_ROOT=/opt/intel/oneapi
